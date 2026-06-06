@@ -5,6 +5,7 @@
     "lib": ["ES2020"],
     "strict": true,
     "esModuleInterop": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "types": ["node"]
   }
 }
