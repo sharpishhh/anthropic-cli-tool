@@ -1,4 +1,4 @@
-import { validateInput } from '../src';
+import { validateInput, responseParser } from '../src';
 
 describe('validateInput', () => {
   test('valid input returns true', () => {
@@ -23,5 +23,20 @@ describe('validateInput', () => {
       user_input: 'There i$ no *&^( in Team!!!',
     });
     expect(userInput).toBe(false);
+  });
+});
+
+describe('responseParser', () => {
+  test('valid response returns reponse', () => {
+    const responseObject = {
+      content: [
+        {
+          type: 'text',
+          text: 'A fast feline mammal.',
+        },
+      ],
+    };
+    const result = responseParser(responseObject);
+    expect(result).toBe('A fast feline mammal.');
   });
 });
